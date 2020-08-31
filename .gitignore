@@ -1,0 +1,5 @@
+# Environment file
+.env
+
+# Generated JSON file
+faqs.json
