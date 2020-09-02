@@ -23,7 +23,6 @@ class FAQGenerator:
         # text.replace("[<@]+[a-zA-Z0-9>]", "")
         text = re.sub("(\<@.*?>)", "", text)
         text = re.sub("(\:.*?:)", "", text)
-
         return text
 
     # get the filter input from user
@@ -53,14 +52,14 @@ class FAQGenerator:
         # Convert the date time to Unix timestamp
         dt = datetime.datetime(year, month, date, hours, minutes)
         time_stamp = time.mktime(dt.timetuple())
-        filter["time_limit"] = time_stamp;
+        filters["time_limit"] = str(time_stamp)
          
         # Get the speaker ID
         filters['speaker_id'] = input("\nWhat is the speaker's user id? ");
 
         # Return the filters
         # return {"time_limit": "1598764092", "speaker_id":"U019TPK0GP6"}
-        return filter
+        return filters
 
 
     # Get the FAQ Dictionary
