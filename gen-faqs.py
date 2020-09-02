@@ -21,9 +21,10 @@ class FAQGenerator:
     # Process the String
     def __process_string(self, text):
         # text.replace("[<@]+[a-zA-Z0-9>]", "")
-        text = re.sub("([<@]+[a-zA-Z0-9>])", "", text)
+        text = re.sub("(\<@.*?>)", "", text)
+        text = re.sub("(\:.*?:)", "", text)
 
-        return text;
+        return text
 
     # get the filter input from user
     def __get_filters(self):
