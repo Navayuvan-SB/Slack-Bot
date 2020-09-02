@@ -3,6 +3,8 @@ import json
 import re
 from dotenv import load_dotenv
 import os
+import datetime
+import time
 
 class FAQGenerator:
 
@@ -38,10 +40,24 @@ class FAQGenerator:
             "time_limit" : None,
             "speaker_id": None,
         }
+        print("When was the session started?(Unix timestamp)")
 
-        filters['time_limit'] = input("When was the session started?(Unix timestamp) ");
-        filters['speaker_id'] = input("What is the speaker's user id? ");
+        # Get the date time input
+        date = int(input("Date = "))
+        month = int(input("Month = "))
+        year = int(input("Year = "))
+        hours = int(input("Hour = "))
+        minutes = int(input("Minute = "))
 
+        # Convert the date time to Unix timestamp
+        dt = datetime.datetime(year, month, date, hours, minutes)
+        time_stamp = time.mktime(dt.timetuple())
+        filter["time_limit"] = time_stamp;
+         
+        # Get the speaker ID
+        filters['speaker_id'] = input("\nWhat is the speaker's user id? ");
+
+        # Return the filters
         return {"time_limit": "1598764092", "speaker_id":"U019TPK0GP6"}
 
 
@@ -74,12 +90,15 @@ class FAQGenerator:
 
         return faqs
 
-
     # Convert the dictionary to JSON file
     def __convert_to_json(self, faqs):
         with open("faqs.json", "w") as outfile:  
             json.dump(faqs, outfile)
 
+        print("""
+            Hurray!🥳 JSON file created and data extracted!
+            """)
+    
     # Start the FAQ Generation
     def generate_FAQs(self):
          # Get the filter from user
