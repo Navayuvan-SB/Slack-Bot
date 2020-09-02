@@ -58,7 +58,8 @@ class FAQGenerator:
         filters['speaker_id'] = input("\nWhat is the speaker's user id? ");
 
         # Return the filters
-        return {"time_limit": "1598764092", "speaker_id":"U019TPK0GP6"}
+        # return {"time_limit": "1598764092", "speaker_id":"U019TPK0GP6"}
+        return filter
 
 
     # Get the FAQ Dictionary
