@@ -42,12 +42,18 @@ Slack bot to extract the AMA session chats and convert it to JSON for FAQs!
 
 3. Click more
 
+    <img src="./screenshots/1.png">
+
 4. Copy Member ID
+
+    <img src="./screenshots/2.png">
 
 ## Where do I get the Channel ID?
 1. Open your Slack channel in browser
 
 2. Look for this part in the URL as shown in the image.
+
+    <img src="./screenshots/3.png">
 
 3. The Highlighted string is your channel ID.
 
